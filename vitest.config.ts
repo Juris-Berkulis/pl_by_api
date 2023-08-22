@@ -11,6 +11,7 @@ export default mergeConfig(
       root: fileURLToPath(new URL('./', import.meta.url)),
       coverage: {
         enabled: true,
+        reportsDirectory: './src/components/__tests__/coverage',
       },
     },
   })
