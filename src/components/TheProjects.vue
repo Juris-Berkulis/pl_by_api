@@ -4,8 +4,9 @@ import ProjectsList from '@/components/ProjectsList.vue';
 import ProjectsListEmpty from '@/components/ProjectsListEmpty.vue'
 import BaseLoader from '@/components/BaseLoader.vue';
 import BasePagination from '@/components/BasePagination.vue';
-import { type ProjectStatus, type Project, type SelectedProjectStatus } from '@/types/index';
+import { type Project, type SelectedProjectStatus } from '@/types/index';
 import BaseSelect from './BaseSelect.vue';
+import BaseInput from './BaseInput.vue';
 
 interface MemoizePagesContent {
     [key: number]: Project[];
@@ -24,29 +25,41 @@ const isLoading: Ref<boolean> = ref(false);
 const memoizePagesContent: MemoizePagesContent = reactive({});
 const projectsStatusesSelectionList: Array<SelectedProjectStatus> = ['Любой', 'CREATED', 'IN_PROGRESS', 'FINISHED'];
 const selectedProjectStatus: Ref<SelectedProjectStatus> = ref('Любой');
+const inputedTitlePart: Ref<string> = ref('');
 
 const pagesCount: ComputedRef<number> = computed(() => {
     const fullPagesCount: number = projectsCount.value / projectsCountInEachPage;
     return projectsCount.value % projectsCountInEachPage === 0 ? fullPagesCount : fullPagesCount + 1
 });
 
-const checkingForAllValues = (status: never): Array<Project> => {
+const checkingForAllValues = (_: never): Array<Project> => {
     return projectsList.value
 };
 
-const filteredProjectsListByStatus: ComputedRef<Array<Project>> = computed((): Array<Project> => {
+const getFilteredProjectsListByStatus = (projectsListForFiltration: Array<Project>): Array<Project> => {
     switch (selectedProjectStatus.value) {
         case 'CREATED':
         case 'IN_PROGRESS':
         case 'FINISHED':
-            return projectsList.value.filter((project: Project): boolean => {
+            return projectsListForFiltration.filter((project: Project): boolean => {
                 return project.status === selectedProjectStatus.value
             })
         case 'Любой':
-            return projectsList.value
+            return projectsListForFiltration
         default:
             return checkingForAllValues(selectedProjectStatus.value)
     }
+};
+
+const getFilteredProjectsListByTitle = (projectsListForFiltration: Array<Project>): Array<Project> => {
+    return projectsListForFiltration.filter((project: Project): boolean => {
+        return project.title.includes(inputedTitlePart.value)
+    })
+};
+
+const filteredProjectsList: ComputedRef<Array<Project>> = computed((): Array<Project> => {
+    const filteredProjectsListByStatus = getFilteredProjectsListByStatus(projectsList.value);
+    return getFilteredProjectsListByTitle(filteredProjectsListByStatus)
 });
 
 const fetchProjectsList = async () => {
@@ -85,8 +98,9 @@ watchEffect(async () => {
 <template>
 <div>
     <BaseSelect v-model:selectedValue="selectedProjectStatus" :optionsList="projectsStatusesSelectionList" />
+    <BaseInput v-model:inputValue="inputedTitlePart" />
     <BaseLoader v-if="isLoading" />
-    <ProjectsList v-else-if="filteredProjectsListByStatus.length" :projectsList="filteredProjectsListByStatus" />
+    <ProjectsList v-else-if="filteredProjectsList.length" :projectsList="filteredProjectsList" />
     <ProjectsListEmpty v-else />
     <BasePagination :pagesCount="pagesCount" :changePage="changePage" />
 </div>

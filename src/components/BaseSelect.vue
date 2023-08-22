@@ -4,12 +4,11 @@ import type { SelectedProjectStatus } from '@/types';
 interface Props {
     selectedValue: SelectedProjectStatus,
     optionsList: Array<SelectedProjectStatus>,
-    // changeSelectedValue: (newSelectedValue: SelectedProjectStatus) => void,
 };
 
 defineProps<Props>();
 
-defineEmits(['update:selectedValue'])
+defineEmits(['update:selectedValue']);
 </script>
 
 <template>
