@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type Project } from '@/types/index';
+import ProjectsListItem from './ProjectsListItem.vue';
 
 interface Props {
     projectsList: Array<Project>,
@@ -10,10 +11,7 @@ defineProps<Props>();
 
 <template>
 <ul>
-    <li v-for="project of projectsList" :key="project.id">
-        <p>{{ project.status }}</p>
-        <h2>{{ project.title }}</h2>
-    </li>
+    <ProjectsListItem v-for="project of projectsList" :key="project.id" :project="project" />
 </ul>
 </template>
 

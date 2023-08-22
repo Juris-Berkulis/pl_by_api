@@ -4,7 +4,9 @@ import TheProjects from './components/TheProjects.vue';
 </script>
 
 <template>
-<TheProjects />
+<main class="max-w-sm min-h-screen h-fit mx-auto p-8 flex">
+    <TheProjects />
+</main>
 </template>
 
 <style scoped>

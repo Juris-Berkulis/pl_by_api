@@ -8,8 +8,13 @@ defineProps<Props>();
 </script>
 
 <template>
-<div>
-    <div v-for="pageNumber of pagesCount" :key="pageNumber" @click="changePage(pageNumber)">{{ pageNumber }}</div>
+<div class="w-full flex justify-center gap-4">
+    <button 
+        class="p-2 bg-sky-200"
+        v-for="pageNumber of pagesCount" 
+        :key="pageNumber" 
+        @click="changePage(pageNumber)"
+    >{{ pageNumber }}</button>
 </div>
 </template>
 

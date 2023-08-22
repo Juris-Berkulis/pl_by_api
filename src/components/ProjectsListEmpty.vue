@@ -2,8 +2,8 @@
 </script>
 
 <template>
-<div>
-    Список пуст
+<div class="h-full w-full flex justify-center items-center">
+    <p class="text-3xl font-bold underline">Список пуст</p>
 </div>
 </template>
 

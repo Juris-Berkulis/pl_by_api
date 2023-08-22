@@ -9,7 +9,12 @@ defineEmits(['update:inputValue']);
 </script>
 
 <template>
-<input type="text" :value="inputValue" @input="$emit('update:inputValue', ($event.target as HTMLInputElement).value)">
+<input 
+    class="border px-2 py-1 text-sm focus:outline-none" 
+    :value="inputValue" 
+    @input="$emit('update:inputValue', ($event.target as HTMLInputElement).value)" 
+    type="text"
+>
 </template>
 
 <style scoped>

@@ -91,12 +91,16 @@ watchEffect(async () => {
 </script>
 
 <template>
-<div>
-    <BaseInput v-model:inputValue="inputedTitlePart" />
-    <BaseSelect v-model:selectedValue="selectedProjectStatus" :optionsList="projectsStatusesSelectionList" />
-    <BaseLoader v-if="isLoading" />
-    <ProjectsList v-else-if="filteredProjectsList.length" :projectsList="filteredProjectsList" />
-    <ProjectsListEmpty v-else />
+<div class="flex flex-col items-center flex-1">
+    <div class="w-full flex justify-between items-center mb-8">
+        <BaseInput v-model:inputValue="inputedTitlePart" />
+        <BaseSelect v-model:selectedValue="selectedProjectStatus" :optionsList="projectsStatusesSelectionList" />
+    </div>
+    <div class="w-full flex-1 mb-8">
+        <BaseLoader v-if="isLoading" />
+        <ProjectsList v-else-if="filteredProjectsList.length" :projectsList="filteredProjectsList" />
+        <ProjectsListEmpty v-else />
+    </div>
     <BasePagination :pagesCount="pagesCount" :changePage="changePage" />
 </div>
 </template>

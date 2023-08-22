@@ -12,7 +12,11 @@ defineEmits(['update:selectedValue']);
 </script>
 
 <template>
-<select :value="selectedValue" @change="$emit('update:selectedValue', ($event.target as HTMLSelectElement).value as SelectedProjectStatus)">
+<select 
+    class="border p-1 focus:outline-none"
+    :value="selectedValue" 
+    @change="$emit('update:selectedValue', ($event.target as HTMLSelectElement).value as SelectedProjectStatus)"
+>
     <option v-for="option of optionsList" :key="option">{{ option }}</option>
 </select>
 </template>
