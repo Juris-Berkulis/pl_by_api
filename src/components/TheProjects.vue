@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { ref, type Ref, computed, type ComputedRef } from 'vue';
-
-type ProjectStatus = 'CREATED' | 'IN_PROGRESS' | 'FINISHED';
-
-interface Project {
-    id: number,
-    title: string,
-    status: ProjectStatus,
-};
+import ProjectsList from '@/components/ProjectsList.vue';
+import ProjectsListEmpty from '@/components/ProjectsListEmpty.vue'
+import BaseLoader from '@/components/BaseLoader.vue';
+import BasePagination from '@/components/BasePagination.vue';
+import { type Project } from '@/types/index';
 
 interface FetchResult {
     count: number,
@@ -49,21 +46,10 @@ fetchProjectsList();
 
 <template>
 <div>
-    <div v-if="isLoading">
-        Загрузка...
-    </div>
-    <ul v-else-if="projectsList.length">
-        <li v-for="project of projectsList" :key="project.id">
-            <p>{{ project.status }}</p>
-            <h2>{{ project.title }}</h2>
-        </li>
-    </ul>
-    <div v-else>
-        Список пуст
-    </div>
-    <div>
-        <div v-for="pageNumber of pagesCount" :key="pageNumber">{{ pageNumber }}</div>
-    </div>
+    <BaseLoader v-if="isLoading" />
+    <ProjectsList v-else-if="projectsList.length" :projectsList="projectsList" />
+    <ProjectsListEmpty v-else />
+    <BasePagination :pagesCount="pagesCount" />
 </div>
 </template>
 
