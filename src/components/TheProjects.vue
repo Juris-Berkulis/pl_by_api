@@ -36,30 +36,25 @@ const checkingForAllValues = (_: never): Array<Project> => {
     return projectsList.value
 };
 
-const getFilteredProjectsListByStatus = (projectsListForFiltration: Array<Project>): Array<Project> => {
+const filteredProjectsListByStatus: ComputedRef<Project[]> = computed((): Array<Project> => {
     switch (selectedProjectStatus.value) {
         case 'CREATED':
         case 'IN_PROGRESS':
         case 'FINISHED':
-            return projectsListForFiltration.filter((project: Project): boolean => {
+            return projectsList.value.filter((project: Project): boolean => {
                 return project.status === selectedProjectStatus.value
             })
         case 'Любой':
-            return projectsListForFiltration
+            return projectsList.value
         default:
             return checkingForAllValues(selectedProjectStatus.value)
     }
-};
+});
 
-const getFilteredProjectsListByTitle = (projectsListForFiltration: Array<Project>): Array<Project> => {
-    return projectsListForFiltration.filter((project: Project): boolean => {
+const filteredProjectsList: ComputedRef<Project[]> = computed((): Array<Project> => {
+    return filteredProjectsListByStatus.value.filter((project: Project): boolean => {
         return project.title.includes(inputedTitlePart.value)
     })
-};
-
-const filteredProjectsList: ComputedRef<Array<Project>> = computed((): Array<Project> => {
-    const filteredProjectsListByStatus = getFilteredProjectsListByStatus(projectsList.value);
-    return getFilteredProjectsListByTitle(filteredProjectsListByStatus)
 });
 
 const fetchProjectsList = async () => {
