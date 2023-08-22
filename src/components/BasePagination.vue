@@ -1,6 +1,7 @@
 <script setup lang="ts">
 interface Props {
     pagesCount: number,
+    changePage: (newPageNumber: number) => void
 };
 
 defineProps<Props>();
@@ -8,7 +9,7 @@ defineProps<Props>();
 
 <template>
 <div>
-    <div v-for="pageNumber of pagesCount" :key="pageNumber">{{ pageNumber }}</div>
+    <div v-for="pageNumber of pagesCount" :key="pageNumber" @click="changePage(pageNumber)">{{ pageNumber }}</div>
 </div>
 </template>
 
