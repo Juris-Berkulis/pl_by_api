@@ -13,7 +13,7 @@ defineEmits(['update:selectedValue']);
 
 <template>
 <select 
-    class="border p-1 focus:outline-none"
+    class="w-full sm:w-1/3 border p-1 text-sm focus:outline-none"
     :value="selectedValue" 
     @change="$emit('update:selectedValue', ($event.target as HTMLSelectElement).value as SelectedProjectStatus)"
 >

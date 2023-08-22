@@ -92,7 +92,7 @@ watchEffect(async () => {
 
 <template>
 <div class="flex flex-col items-center flex-1">
-    <div class="w-full flex justify-between items-center mb-8">
+    <div class="w-full flex justify-between items-center mb-8 flex-wrap">
         <BaseInput v-model:inputValue="inputedTitlePart" />
         <BaseSelect v-model:selectedValue="selectedProjectStatus" :optionsList="projectsStatusesSelectionList" />
     </div>
