@@ -6,6 +6,6 @@ describe('TheProjects', () => {
     const wrapper = mount(TheProjects);
 
     it('Snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.html()).toMatchSnapshot();
     });
 });

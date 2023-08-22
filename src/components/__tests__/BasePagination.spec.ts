@@ -14,7 +14,7 @@ describe('BasePagination', () => {
     });
 
     it('snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('Contains text', () => {

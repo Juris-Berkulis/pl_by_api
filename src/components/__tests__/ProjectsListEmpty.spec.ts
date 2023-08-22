@@ -6,7 +6,7 @@ describe('ProjectsListEmpty', () => {
     const wrapper = mount(ProjectsListEmpty);
 
     it('Snapshot', () => {
-        expect(wrapper).toMatchSnapshot()
+        expect(wrapper.html()).toMatchSnapshot()
     });
 
     it('Contains text', () => {

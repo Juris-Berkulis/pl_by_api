@@ -11,6 +11,10 @@ describe('BaseSelect', () => {
         } 
     });
 
+    it('Snapshot', () => {
+        expect(wrapper.html()).toMatchSnapshot();
+    });
+
     it('Renders properly', () => {
         expect(wrapper.text()).toContain('Любой');
     });
@@ -27,9 +31,5 @@ describe('BaseSelect', () => {
         expect(wrapper.text()).toContain('CREATED');
         expect(wrapper.text()).toContain('IN_PROGRESS');
         expect(wrapper.text()).toContain('FINISHED');
-    });
-
-    it('Snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
     });
 });

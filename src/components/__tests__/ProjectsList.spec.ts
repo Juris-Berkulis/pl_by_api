@@ -64,7 +64,7 @@ describe('ProjectsList', () => {
     });
 
     it('Snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.html()).toMatchSnapshot();
     });
 
     it('Contains text', () => {

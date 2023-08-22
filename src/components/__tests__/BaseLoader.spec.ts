@@ -6,6 +6,6 @@ describe('BaseLoader', () => {
     const wrapper = mount(BaseLoader);
 
     it('Snapshot', () => {
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.html()).toMatchSnapshot();
     });
 });
