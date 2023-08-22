@@ -101,7 +101,7 @@ watchEffect(async () => {
         <ProjectsList v-else-if="filteredProjectsList.length" :projectsList="filteredProjectsList" />
         <ProjectsListEmpty v-else />
     </div>
-    <BasePagination :pagesCount="pagesCount" :changePage="changePage" />
+    <BasePagination :pagesCount="pagesCount" :changePage="changePage" :page="page" />
 </div>
 </template>
 
