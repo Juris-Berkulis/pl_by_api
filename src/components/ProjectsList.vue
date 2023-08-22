@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import ProjectsListItem from '@/components/ProjectsListItem.vue';
 import { type Project } from '@/types/index';
-import ProjectsListItem from './ProjectsListItem.vue';
 
 interface Props {
     projectsList: Array<Project>,

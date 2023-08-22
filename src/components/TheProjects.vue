@@ -4,9 +4,9 @@ import ProjectsList from '@/components/ProjectsList.vue';
 import ProjectsListEmpty from '@/components/ProjectsListEmpty.vue'
 import BaseLoader from '@/components/BaseLoader.vue';
 import BasePagination from '@/components/BasePagination.vue';
+import BaseSelect from '@/components/BaseSelect.vue';
+import BaseInput from '@/components/BaseInput.vue';
 import { type Project, type SelectedProjectStatus } from '@/types/index';
-import BaseSelect from './BaseSelect.vue';
-import BaseInput from './BaseInput.vue';
 
 interface MemoizePagesContent {
     [key: number]: Project[];
