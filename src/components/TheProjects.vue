@@ -4,7 +4,8 @@ import ProjectsList from '@/components/ProjectsList.vue';
 import ProjectsListEmpty from '@/components/ProjectsListEmpty.vue'
 import BaseLoader from '@/components/BaseLoader.vue';
 import BasePagination from '@/components/BasePagination.vue';
-import { type ProjectStatus, type Project } from '@/types/index';
+import { type ProjectStatus, type Project, type SelectedProjectStatus } from '@/types/index';
+import BaseSelect from './BaseSelect.vue';
 
 interface MemoizePagesContent {
     [key: number]: Project[];
@@ -14,8 +15,6 @@ interface FetchResult {
     count: number,
     results: Project[],
 };
-
-type SelectedProjectStatus = ProjectStatus | 'Любой';
 
 const projectsList: Ref<Array<Project>> = ref([]);
 const projectsCount: Ref<number> = ref(0);
@@ -85,13 +84,11 @@ watchEffect(async () => {
 
 <template>
 <div>
+    <BaseSelect v-model:selectedValue="selectedProjectStatus" :optionsList="projectsStatusesSelectionList" />
     <BaseLoader v-if="isLoading" />
     <ProjectsList v-else-if="filteredProjectsListByStatus.length" :projectsList="filteredProjectsListByStatus" />
     <ProjectsListEmpty v-else />
     <BasePagination :pagesCount="pagesCount" :changePage="changePage" />
-    <select v-model="selectedProjectStatus">
-        <option v-for="projectStatus of projectsStatusesSelectionList" :key="projectStatus">{{ projectStatus }}</option>
-    </select>
 </div>
 </template>
 

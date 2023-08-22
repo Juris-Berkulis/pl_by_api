@@ -5,3 +5,5 @@ export interface Project {
     title: string,
     status: ProjectStatus,
 };
+
+export type SelectedProjectStatus = ProjectStatus | 'Любой';
