@@ -27,10 +27,14 @@ const projectsStatusesSelectionList: Array<SelectedProjectStatus> = ['Любой
 const selectedProjectStatus: Ref<SelectedProjectStatus> = ref('Любой');
 const inputedTitlePart: Ref<string> = ref('');
 
-const pagesCount: ComputedRef<number> = computed(() => {
+const pagesCount: ComputedRef<number> = computed((): number => {
     const fullPagesCount: number = projectsCount.value / projectsCountInEachPage;
     return projectsCount.value % projectsCountInEachPage === 0 ? fullPagesCount : fullPagesCount + 1
 });
+
+const changePage = (newPageNumber: number): void => {
+    page.value = newPageNumber;
+};
 
 const checkingForAllValues = (_: never): Array<Project> => {
     return projectsList.value
@@ -76,10 +80,6 @@ const fetchProjectsList = async () => {
     }
 };
 
-const changePage = (newPageNumber: number):void => {
-    page.value = newPageNumber;
-};
-
 watchEffect(async () => {
     if (memoizePagesContent[page.value]) {
         projectsList.value = memoizePagesContent[page.value];
@@ -92,8 +92,8 @@ watchEffect(async () => {
 
 <template>
 <div>
-    <BaseSelect v-model:selectedValue="selectedProjectStatus" :optionsList="projectsStatusesSelectionList" />
     <BaseInput v-model:inputValue="inputedTitlePart" />
+    <BaseSelect v-model:selectedValue="selectedProjectStatus" :optionsList="projectsStatusesSelectionList" />
     <BaseLoader v-if="isLoading" />
     <ProjectsList v-else-if="filteredProjectsList.length" :projectsList="filteredProjectsList" />
     <ProjectsListEmpty v-else />
