@@ -4,7 +4,7 @@ import ProjectsList from '@/components/ProjectsList.vue';
 import ProjectsListEmpty from '@/components/ProjectsListEmpty.vue'
 import BaseLoader from '@/components/BaseLoader.vue';
 import BasePagination from '@/components/BasePagination.vue';
-import { type Project } from '@/types/index';
+import { type ProjectStatus, type Project } from '@/types/index';
 
 interface MemoizePagesContent {
     [key: number]: Project[];
@@ -15,16 +15,39 @@ interface FetchResult {
     results: Project[],
 };
 
+type SelectedProjectStatus = ProjectStatus | 'Любой';
+
 const projectsList: Ref<Array<Project>> = ref([]);
 const projectsCount: Ref<number> = ref(0);
 const page: Ref<number> = ref(1);
 const projectsCountInEachPage: number = 10;
 const isLoading: Ref<boolean> = ref(false);
 const memoizePagesContent: MemoizePagesContent = reactive({});
+const projectsStatusesSelectionList: Array<SelectedProjectStatus> = ['Любой', 'CREATED', 'IN_PROGRESS', 'FINISHED'];
+const selectedProjectStatus: Ref<SelectedProjectStatus> = ref('Любой');
 
 const pagesCount: ComputedRef<number> = computed(() => {
     const fullPagesCount: number = projectsCount.value / projectsCountInEachPage;
     return projectsCount.value % projectsCountInEachPage === 0 ? fullPagesCount : fullPagesCount + 1
+});
+
+const checkingForAllValues = (status: never): Array<Project> => {
+    return projectsList.value
+};
+
+const filteredProjectsListByStatus: ComputedRef<Array<Project>> = computed((): Array<Project> => {
+    switch (selectedProjectStatus.value) {
+        case 'CREATED':
+        case 'IN_PROGRESS':
+        case 'FINISHED':
+            return projectsList.value.filter((project: Project): boolean => {
+                return project.status === selectedProjectStatus.value
+            })
+        case 'Любой':
+            return projectsList.value
+        default:
+            return checkingForAllValues(selectedProjectStatus.value)
+    }
 });
 
 const fetchProjectsList = async () => {
@@ -63,9 +86,12 @@ watchEffect(async () => {
 <template>
 <div>
     <BaseLoader v-if="isLoading" />
-    <ProjectsList v-else-if="projectsList.length" :projectsList="projectsList" />
+    <ProjectsList v-else-if="filteredProjectsListByStatus.length" :projectsList="filteredProjectsListByStatus" />
     <ProjectsListEmpty v-else />
     <BasePagination :pagesCount="pagesCount" :changePage="changePage" />
+    <select v-model="selectedProjectStatus">
+        <option v-for="projectStatus of projectsStatusesSelectionList" :key="projectStatus">{{ projectStatus }}</option>
+    </select>
 </div>
 </template>
 

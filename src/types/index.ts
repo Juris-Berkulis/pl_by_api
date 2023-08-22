@@ -1,4 +1,4 @@
-type ProjectStatus = 'CREATED' | 'IN_PROGRESS' | 'FINISHED';
+export type ProjectStatus = 'CREATED' | 'IN_PROGRESS' | 'FINISHED';
 
 export interface Project {
     id: number,
