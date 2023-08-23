@@ -1,0 +1,27 @@
+@font-face {
+	font-family: "Times New Roman Cyr";
+	src: url("../fonts/Times_New_Roman_Cyr/400/times-new-roman-cyr.eot");
+	src: url("../fonts/Times_New_Roman_Cyr/400/times-new-roman-cyr.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Times_New_Roman_Cyr/400/times-new-roman-cyr.woff2") format("woff2"),
+        url("../fonts/Times_New_Roman_Cyr/400/times-new-roman-cyr.woff") format("woff"),
+        url("../fonts/Times_New_Roman_Cyr/400/times-new-roman-cyr.ttf") format("truetype"),
+		url("../fonts/Times_New_Roman_Cyr/400/times-new-roman-cyr.otf") format("opentype"),
+		url("../fonts/Times_New_Roman_Cyr/400/times-new-roman-cyr.svg") format("svg");
+	font-weight: 400;
+	font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+	font-family: "Times New Roman Cyr";
+	src: url("../fonts/Times_New_Roman_Cyr/700/times-new-roman-cyr-bold.eot");
+	src: url("../fonts/Times_New_Roman_Cyr/700/times-new-roman-cyr-bold.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Times_New_Roman_Cyr/700/times-new-roman-cyr-bold.woff2") format("woff2"),
+        url("../fonts/Times_New_Roman_Cyr/700/times-new-roman-cyr-bold.woff") format("woff"),
+        url("../fonts/Times_New_Roman_Cyr/700/times-new-roman-cyr-bold.ttf") format("truetype"),
+		url("../fonts/Times_New_Roman_Cyr/700/times-new-roman-cyr-bold.otf") format("opentype"),
+		url("../fonts/Times_New_Roman_Cyr/700/times-new-roman-cyr-bold.svg") format("svg");
+	font-weight: 700;
+	font-style: normal;
+    font-display: swap;
+}
