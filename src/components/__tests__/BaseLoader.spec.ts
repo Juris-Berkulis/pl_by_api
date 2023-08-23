@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
-import BaseLoader from "../BaseLoader.vue";
+import BaseLoader from "@/components/BaseLoader.vue";
 
 describe('BaseLoader', () => {
     const wrapper = mount(BaseLoader);

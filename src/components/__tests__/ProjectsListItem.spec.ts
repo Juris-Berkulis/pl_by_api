@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
-import ProjectsListItem from "../ProjectsListItem.vue";
+import ProjectsListItem from "@/components/ProjectsListItem.vue";
 import type { Project } from "@/types";
 
 const project: Project = {

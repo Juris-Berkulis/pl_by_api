@@ -2,9 +2,9 @@
 
 exports[`BaseSelect > Snapshot 1`] = `
 "<select class=\\"w-full sm:w-1/3 border p-1 text-sm focus:outline-none\\">
-  <option>Любой</option>
-  <option>CREATED</option>
-  <option>IN_PROGRESS</option>
-  <option>FINISHED</option>
+  <option data-option=\\"Любой\\">Любой</option>
+  <option data-option=\\"CREATED\\">CREATED</option>
+  <option data-option=\\"IN_PROGRESS\\">IN_PROGRESS</option>
+  <option data-option=\\"FINISHED\\">FINISHED</option>
 </select>"
 `;

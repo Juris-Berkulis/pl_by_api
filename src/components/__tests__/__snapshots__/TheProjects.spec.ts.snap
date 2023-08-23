@@ -3,10 +3,10 @@
 exports[`TheProjects > Snapshot 1`] = `
 "<div class=\\"flex flex-col items-center flex-1\\">
   <div class=\\"w-full flex justify-between items-center mb-8 flex-wrap\\"><input class=\\"w-full sm:w-1/2 px-2 py-1 border text-sm focus:outline-none\\" type=\\"text\\"><select class=\\"w-full sm:w-1/3 border p-1 text-sm focus:outline-none\\">
-      <option>Любой</option>
-      <option>CREATED</option>
-      <option>IN_PROGRESS</option>
-      <option>FINISHED</option>
+      <option data-option=\\"Любой\\">Любой</option>
+      <option data-option=\\"CREATED\\">CREATED</option>
+      <option data-option=\\"IN_PROGRESS\\">IN_PROGRESS</option>
+      <option data-option=\\"FINISHED\\">FINISHED</option>
     </select></div>
   <div class=\\"w-full flex-1 mb-8\\">
     <div class=\\"h-full w-full flex justify-center items-center\\">

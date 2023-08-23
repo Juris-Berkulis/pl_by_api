@@ -4,43 +4,43 @@ exports[`ProjectsList > Snapshot 1`] = `
 "<ul>
   <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
     <p class=\\"mb-0.5 font-bold\\">IN_PROGRESS</p>
-    <h2>Рекламный ролик №31 (банки, сервис, 2 кат)</h2>
+    <h2>Рекламный ролик №56 (банки, дебет, 2 кат)</h2>
   </li>
   <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
     <p class=\\"mb-0.5 font-bold\\">IN_PROGRESS</p>
-    <h2>Рекламный ролик №30 (банки, lдебет, 2 кат)</h2>
+    <h2>Рекламный ролик №55 (банки, вклады, 2 кат)</h2>
   </li>
   <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
     <p class=\\"mb-0.5 font-bold\\">IN_PROGRESS</p>
-    <h2>Рекламный ролик №29 (банки, кредит, 2 кат)</h2>
+    <h2>Рекламный ролик №54 (банки, дебет, 2 кат)</h2>
   </li>
   <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
     <p class=\\"mb-0.5 font-bold\\">IN_PROGRESS</p>
-    <h2>Рекламный ролик №28 (банки, кредит, 2 кат)</h2>
+    <h2>Рекламный ролик №53 (банки, дебет, 2 кат)</h2>
   </li>
   <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
     <p class=\\"mb-0.5 font-bold\\">IN_PROGRESS</p>
-    <h2>Рекламный ролик #27(банки, кредит, 15 сек)</h2>
-  </li>
-  <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
-    <p class=\\"mb-0.5 font-bold\\">IN_PROGRESS</p>
-    <h2>Рекламный ролик #26(банки, кредит, 2 кат)</h2>
+    <h2>Рекламный ролик №52 (банки, дебет, 2 кат)</h2>
   </li>
   <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
     <p class=\\"mb-0.5 font-bold\\">FINISHED</p>
-    <h2>Исследование AICAP VidMK23 09.06</h2>
+    <h2>Рекламный видеоролик №51 (КАЗ)</h2>
   </li>
   <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
     <p class=\\"mb-0.5 font-bold\\">FINISHED</p>
-    <h2>Задание от AICAP №6</h2>
+    <h2>Рекламный видеоролик №50 (РУС)</h2>
+  </li>
+  <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
+    <p class=\\"mb-0.5 font-bold\\">FINISHED</p>
+    <h2>Задание от AICAP №8</h2>
   </li>
   <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
     <p class=\\"mb-0.5 font-bold\\">IN_PROGRESS</p>
-    <h2>Исследование AICAP VidMK23</h2>
+    <h2>Задание от AICAP №7</h2>
   </li>
   <li class=\\"mb-2 last:mb-0 bg-sky-200 p-1\\">
-    <p class=\\"mb-0.5 font-bold\\">FINISHED</p>
-    <h2>Задание от AICAP №5</h2>
+    <p class=\\"mb-0.5 font-bold\\">IN_PROGRESS</p>
+    <h2>Рекламный ролик №48 (банки, дебет, 1 кат)</h2>
   </li>
 </ul>"
 `;

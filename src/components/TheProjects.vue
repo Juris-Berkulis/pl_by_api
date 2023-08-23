@@ -69,7 +69,6 @@ const fetchProjectsList = async () => {
             const fetchResult: FetchResult = await response.json();
             projectsList.value = fetchResult.results;
             projectsCount.value = fetchResult.count;
-            console.log(projectsList.value)
         } else {
             throw 'Ошибка при запросе'
         }

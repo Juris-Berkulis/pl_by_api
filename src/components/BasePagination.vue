@@ -16,6 +16,7 @@ defineProps<Props>();
         v-for="pageNumber of pagesCount" 
         :key="pageNumber" 
         @click="changePage(pageNumber)"
+        :data-page="pageNumber"
     >{{ pageNumber }}</button>
 </div>
 </template>
