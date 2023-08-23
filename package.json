@@ -8,6 +8,8 @@
     "preview": "vite preview",
     "test:unit": "vitest run --coverage",
     "build-only": "vite build",
+    "deploy_to_surge": "surge --project ./dist --domain https://projects-list-by-api.surge.sh/ && surge list",
+    "deploy": "npm run test:unit && npm run build && npm run deploy_to_surge",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {

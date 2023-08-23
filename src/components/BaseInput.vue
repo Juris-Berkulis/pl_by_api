@@ -14,6 +14,7 @@ defineEmits(['update:inputValue']);
     :value="inputValue" 
     @input="$emit('update:inputValue', ($event.target as HTMLInputElement).value)" 
     type="text"
+    placeholder="Заголовок"
 >
 </template>
 
