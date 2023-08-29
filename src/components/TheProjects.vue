@@ -28,8 +28,9 @@ const selectedProjectStatus: Ref<SelectedProjectStatus> = ref('Любой');
 const inputedTitlePart: Ref<string> = ref('');
 
 const pagesCount: ComputedRef<number> = computed((): number => {
-    const fullPagesCount: number = projectsCount.value / projectsCountInEachPage;
-    return projectsCount.value % projectsCountInEachPage === 0 ? fullPagesCount : fullPagesCount + 1
+    const projectsCountForLastPage: number = projectsCount.value % projectsCountInEachPage;
+    const fulledPagesCount: number = (projectsCount.value - projectsCountForLastPage) / projectsCountInEachPage;
+    return projectsCountForLastPage === 0 ? fulledPagesCount : fulledPagesCount + 1
 });
 
 const changePage = (newPageNumber: number): void => {
