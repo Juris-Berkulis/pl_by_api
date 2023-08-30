@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, type Ref } from 'vue';
+
 interface Props {
     inputedValue: string,
     resetPage: () => void,
@@ -8,9 +10,15 @@ const props = defineProps<Props>();
 
 const emit = defineEmits(['update:inputedValue']);
 
+const timerId: Ref<number | undefined> = ref();
+
 const changeInputedValue = (event: Event): void => {
-    props.resetPage();
-    emit('update:inputedValue', <string>(event.target as HTMLInputElement).value);
+    clearTimeout(timerId.value);
+
+    timerId.value = setTimeout(() => {
+        props.resetPage();
+        emit('update:inputedValue', <string>(event.target as HTMLInputElement).value);
+    }, 1000);
 };
 </script>
 
