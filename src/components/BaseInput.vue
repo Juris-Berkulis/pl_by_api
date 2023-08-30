@@ -10,10 +10,10 @@ const props = defineProps<Props>();
 
 const emit = defineEmits(['update:inputedValue']);
 
-const timerId: Ref<number | undefined> = ref();
+const timerId: Ref<ReturnType<typeof setTimeout> | undefined> = ref();
 
 const changeInputedValue = (event: Event): void => {
-    clearTimeout(timerId.value);
+    clearTimeout(Number(timerId.value));
 
     timerId.value = setTimeout(() => {
         props.resetPage();
