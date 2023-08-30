@@ -1,18 +1,24 @@
 <script setup lang="ts">
 interface Props {
-    inputValue: string,
+    inputedValue: string,
+    resetPage: () => void,
 };
 
-defineProps<Props>();
+const props = defineProps<Props>();
 
-defineEmits(['update:inputValue']);
+const emit = defineEmits(['update:inputedValue']);
+
+const changeInputedValue = (event: Event): void => {
+    props.resetPage();
+    emit('update:inputedValue', <string>(event.target as HTMLInputElement).value);
+};
 </script>
 
 <template>
 <input 
     class="w-full sm:w-1/2 px-2 py-1 border text-sm focus:outline-none" 
-    :value="inputValue" 
-    @input="$emit('update:inputValue', ($event.target as HTMLInputElement).value)" 
+    :value="inputedValue" 
+    @input="changeInputedValue" 
     type="text"
     placeholder="Заголовок"
 >

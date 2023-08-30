@@ -5,7 +5,8 @@ import BaseInput from "@/components/BaseInput.vue";
 describe('BaseInput', () => {
     const wrapper = mount(BaseInput, {
         props: {
-            inputValue: '',
+            inputedValue: '',
+            resetPage: () => {},
         }
     });
 
@@ -16,7 +17,8 @@ describe('BaseInput', () => {
     it('Contains text', () => {
         const wrapper = mount(BaseInput, {
             props: {
-                inputValue: 'aaa',
+                inputedValue: 'aaa',
+                resetPage: () => {},
             }
         });
         expect(wrapper.get('input').attributes('value') === 'aaa');

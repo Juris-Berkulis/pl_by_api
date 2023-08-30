@@ -7,7 +7,8 @@ describe('BaseSelect', () => {
     const wrapper = mount(BaseSelect, { 
         props: { 
             selectedValue: 'Любой', 
-            optionsList: ['Любой', 'CREATED', 'IN_PROGRESS', 'FINISHED'] 
+            optionsList: ['Любой', 'CREATED', 'IN_PROGRESS', 'FINISHED'],
+            resetPage: () => {},
         } 
     });
 
@@ -23,7 +24,8 @@ describe('BaseSelect', () => {
         const wrapper = mount(BaseSelect, {
             props: { 
                 selectedValue: 'CREATED', 
-                optionsList: ['Любой', 'CREATED', 'IN_PROGRESS', 'FINISHED'] 
+                optionsList: ['Любой', 'CREATED', 'IN_PROGRESS', 'FINISHED'],
+                resetPage: () => {},
             } 
         });
         expect(wrapper.get('select').attributes('value') === 'CREATED');
